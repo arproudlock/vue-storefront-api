@@ -7,7 +7,7 @@ class OrderProxy extends AbstractOrderProxy {
     // const Magento2Client = require('magento2-rest-client').Magento2Client;
     super(config, req)
     // this.api = Magento2Client(multiStoreConfig(config.magento2.api, req));
-    this.token = "Bearer "+config.moorup.api.token;
+    this.token = 'Bearer ' + config.moorup.api.token;
     this.baseURL = config.moorup.api.baseUrl;
     const instance = axios.create({
       baseURL: this.baseURL,
@@ -20,19 +20,19 @@ class OrderProxy extends AbstractOrderProxy {
 
   create (orderData) {
     const inst = this;
-        return new Promise ((resolve, reject) => {
-          try {
-            inst.api.post('order/create/',orderData).then((response) => {
-              console.log(response.data);
-              resolve (response.data.result);
-            }, (error) => {
-              console.log(error);
-              // reject(error);
-            });
-          } catch (e) {
-              // reject(e)
-          }
-      });
+    return new Promise((resolve, reject) => {
+      try {
+        inst.api.post('order/create/', orderData).then((response) => {
+          console.log(response.data);
+          resolve(response.data.result);
+        }, (error) => {
+          console.log(error);
+          // reject(error);
+        });
+      } catch (e) {
+        // reject(e)
+      }
+    });
   }
 }
 

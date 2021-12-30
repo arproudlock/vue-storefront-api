@@ -3,7 +3,7 @@ import { apiStatus } from '../../../lib/util'
 import * as Contentful from 'contentful'
 
 module.exports = ({ config, db }) => {
-  const api = Router ()
+  const api = Router()
 
   const { space, accessToken } = config.extensions.contentful
   const client = Contentful.createClient({
@@ -51,7 +51,6 @@ module.exports = ({ config, db }) => {
       if (!id) {
         let error = 'no id provided'
         apiStatus(res, error, 500)
-        return
       } else {
         // id is given, let's do the Request
         // reference: https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/entries/entry
@@ -59,7 +58,6 @@ module.exports = ({ config, db }) => {
           .then((entry) => apiStatus(res, entry, 200))
           .catch((err) => apiStatus(res, err, 500))
       }
-
     }
   })
 

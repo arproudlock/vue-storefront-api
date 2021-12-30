@@ -7,7 +7,7 @@ class StockProxy extends AbstractStockProxy {
     // const Magento2Client = require('magento2-rest-client').Magento2Client;
     super(config, req)
     // this.api = Magento2Client(multiStoreConfig(config.magento2.api, req));
-    this.token = "Bearer "+config.moorup.api.token;
+    this.token = 'Bearer ' + config.moorup.api.token;
     this.baseURL = config.moorup.api.baseUrl;
     const instance = axios.create({
       baseURL: this.baseURL,
@@ -20,20 +20,20 @@ class StockProxy extends AbstractStockProxy {
 
   check ({sku, stockId = 0}) {
     const inst = this;
-    const reqArray = { sku:sku, stockId:stockId };
+    const reqArray = { sku: sku, stockId: stockId };
 
-      return new Promise ((resolve, reject) => {
-        try {
-          inst.api.post('stock/check/',reqArray).then((response) => {
-            console.log(response.data);
-            resolve (response.data.result);
-          }, (error) => {
-            console.log(error);
-            reject(error);
-          });
-        } catch (e) {
-            reject(e)
-        }
+    return new Promise((resolve, reject) => {
+      try {
+        inst.api.post('stock/check/', reqArray).then((response) => {
+          console.log(response.data);
+          resolve(response.data.result);
+        }, (error) => {
+          console.log(error);
+          reject(error);
+        });
+      } catch (e) {
+        reject(e)
+      }
     });
   }
 }
