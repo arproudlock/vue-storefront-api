@@ -48,10 +48,11 @@ export default ({ config, db }) => {
   /** Register the custom extensions */
   for (let ext of config.registeredExtensions) {
     let entryPoint
-
+    console.log(ext)
     try {
       entryPoint = require('./extensions/' + ext)
     } catch (err) {
+      console.log(err)
       try {
         entryPoint = require(ext)
       } catch (err) {

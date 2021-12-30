@@ -6,34 +6,57 @@
        "slug": {"type": "keyword"},
        "size": {"type": "integer"},
        "size_options": {"type": "integer"},
+       "grade": {"type": "integer"},
+       "grade_options": {"type": "integer"},
        "price": {"type": "float"},
-       "has_options": {"type": "keyword"},            
+       "has_options": {"type": "keyword"},
        "special_price": {"type": "float"},
        "color": {"type": "integer"},
        "color_options": {"type": "integer"},
+       "memory": {"type": "integer"},
+       "memory_options": {"type": "integer"},
+       "product_brand": {"type": "integer"},
+       "product_brand_options": {"type": "integer"},
+       "product_model": {"type": "integer"},
+       "product_model_options": {"type": "integer"},
+       "seller": {"type": "integer"},
+       "seller_options": {"type": "integer"},
+       "seller_name": {"type": "text"},
+       "seller_rating_stars": {"type": "float"},
+       "seller_total_reviews": {"type": "float"},
+       "seller_description": {"type": "keyword"},
+       "brand": {"type": "keyword"},
+       "model": {"type": "keyword"},
+       "image": {"type": "text"},
+       "tp_skus": {"type": "text"},
+       "seller_skus": {"type": "text"},
+       "badge": {"type": "text"},
+       "product_contents": {"type":"text"},
+       "specifications": {"type":"text"},
+       "qa_list": {"type":"text"},
        "pattern": {"type": "text"},
        "id": {"type": "long"},
        "status": {"type": "integer"},
        "weight": {"type": "integer"},
        "visibility": {"type": "integer"},
-       "created_at": { 
-           "type": "date",           
+       "created_at": {
+           "type": "date",
            "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
         },
-       "updated_at": { 
-           "type": "date",           
+       "updated_at": {
+           "type": "date",
            "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
         },
        "special_from_date": {
-           "type": "date",           
+           "type": "date",
            "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
         },
        "special_to_date": {
-           "type": "date",           
+           "type": "date",
            "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
         },
        "news_from_date": {
-           "type": "date",           
+           "type": "date",
            "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
         },
        "news_to_date": {
@@ -42,6 +65,7 @@
         },
        "description": {"type": "text"},
        "name": {"type": "text"},
+       "meta_name": {"type": "text"},
        "configurable_children": {
            "properties": {
                "url_key": {"type": "keyword"},
@@ -56,15 +80,15 @@
                "attribute_id": {"type": "long"},
                "default_label": {"type": "text"},
                "label": {"type": "text"},
-               "frontend_label": {"type": "text"},   
+               "frontend_label": {"type": "text"},
                "store_label": {"type": "text"},
                "values": {
                    "properties": {
                        "default_label": {"type": "text"},
                        "label": {"type": "text"},
-                       "frontend_label": {"type": "text"},                           
+                       "frontend_label": {"type": "text"},
                        "store_label": {"type": "text"},
-                       "value_index":  {"type": "keyword"}                          
+                       "value_index":  {"type": "keyword"}
                     }
                 }
             }
@@ -77,6 +101,33 @@
        "gender": {"type": "integer"},
        "material": {"type": "integer"},
        "category_gear": {"type": "integer"},
+       "shipping_type": {"type": "keyword"},
+       "shipping_from": {"type": "integer"},
+       "shipping_to": {"type": "integer"},
+       "shipping_location": {"type": "text"},
+       "product_reviews": {
+         "properties": {
+           "av_stars": {"type": "float"},
+           "count": {"type": "integer"},
+           "reviews": {
+             "properties": {
+               "content": {"type": "text"},
+               "product": {"type": "text"},
+               "reviewer": {"type": "text"},
+               "reviewer_time": {"type": "text"},
+               "stars": {"type": "integer"},
+               "attributeRatings": {
+                 "properties": {
+                   "attributeId": {"type": "text"},
+                   "attributeName": {"type": "text"},
+                   "attributeRating": {"type": "integer"}
+                 }
+               }
+
+             }
+           }
+         }
+       },
        "attributes_metadata": {
             "properties": {
                 "id": {"type": "integer"},
